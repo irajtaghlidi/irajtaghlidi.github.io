@@ -1,10 +1,16 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<style>
+			body {
+				background: #87CEEB;
+			}
 			#parachute{
 				position:absolute;
+				display: flex;
+				justify-content: center;
 			}
-			#parachute img{
+			#parachute img {
 				transform-origin:50px 5px;
 				transition:transform 1s ease-in 0s;
 				animation-duration: 2.2s;
@@ -33,22 +39,29 @@
 			  }
 			}
 		</style>
+
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function(){
+				var parachute = document.getElementById("parachute");
+				if(parachute){
+					setInterval(function(){
+						var top = parachute.offsetTop;
+						var left = parachute.offsetLeft;
+						top += 1;
+						left += 1;
+						parachute.style.top = top+'px';
+						parachute.style.left = left+'px';
+					}, 70);
+				}
+		}, false);
+
+		</script>
 	</head>
 	<body>
-		<script type="javascript">
-			var parachute = document.getElementById("parachute");
-			if(parachute){
-				setInterval(function(){
-					var top = parachute.offsetTop;
-					top += 1;
-					parachute.style.top = top+'px';
-				},50);
-			}
-		</script>
-
-
 		<div id="parachute">
-			<img src="http://i.imgur.com/XSNyND8.png">
+			<img src="https://i.imgur.com/XSNyND8.png">
 		</div>
 	</body>
 </body>
+</html>
+
